@@ -50,12 +50,14 @@ logging.basicConfig(
 )
 logging.getLogger("FastTelethon").setLevel(logging.INFO)
 logging.getLogger("urllib3").setLevel(logging.INFO)
+
+# Define the LOGS object using the name of the current module
 LOGS = logging.getLogger(__name__)
 
 try:
     bot = TelegramClient(None, APP_ID, API_HASH)
 except Exception as e:
     LOGS.info("Environment vars are missing! Kindly recheck.")
-    LOGS.info("Bot is quiting...")
+    LOGS.info("Bot is quitting...")
     LOGS.info(str(e))
     exit()
